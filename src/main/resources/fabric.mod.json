@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "qolplus",
+	"version": "${version}",
+	"name": "QoL Plus",
+	"description": "Small fixes you'd notice missing: a search bar and sort button in chests, right-click crop harvest, double doors, hotbar refill, excavator, zoom, light overlay, death marker, item tooltips, tree felling with auto-pickup, vein mining, fast leaf decay, hoe grass clearing, low-durability warnings and an armor/firework HUD. Every feature can be toggled.",
+	"authors": [
+		"zay"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/qolplus/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.qolplus.QolPlus"
+		],
+		"client": [
+			"com.qolplus.client.QolPlusClient"
+		],
+		"modmenu": [
+			"com.qolplus.client.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+		"qolplus.mixins.json",
+		{
+			"config": "qolplus.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}

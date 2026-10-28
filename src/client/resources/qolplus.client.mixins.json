@@ -1,0 +1,23 @@
+{
+	"required": true,
+	"package": "com.qolplus.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"CameraZoomMixin",
+		"ContainerScreenAccessor",
+		"FramerateCapMixin",
+		"FreelookCameraMixin",
+		"FreelookTurnMixin",
+		"FullbrightMixin",
+		"HitColorMixin",
+		"KeyClickMixin",
+		"MouseClickMixin",
+		"NoParticlesMixin",
+		"ShulkerPreviewMixin",
+		"ShulkerTextMixin",
+		"SignDistanceMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
