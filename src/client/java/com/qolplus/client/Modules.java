@@ -72,8 +72,8 @@ public final class Modules {
 	public static final String ZOOM = "Zoom";
 	public static final String FREELOOK = "Freelook";
 	public static final int NO_BIND = -1;
-	/** Default keybinds (Minecraft's own key numbers): B, F7, Z, Left Alt. */
-	private static final Map<String, Integer> DEFAULT_BINDS = Map.of("Excavator", 5, "Light Overlay", 64, ZOOM, 29, FREELOOK, 226);
+	/** Default keybinds (Minecraft's own key numbers): B, F7, Z, Left Alt, F6. */
+	private static final Map<String, Integer> DEFAULT_BINDS = Map.of("Excavator", 5, "Light Overlay", 64, ZOOM, 29, FREELOOK, 226, "Freecam", 63);
 
 	public static final List<Module> ALL = List.of(
 			new Module("Tree Felling", Category.WORLD, "Chop one log with an axe to fell the whole tree", () -> c().treeFelling, v -> c().treeFelling = v,
@@ -113,6 +113,10 @@ public final class Modules {
 							bool("Cinematic", () -> c().zoomSmoothCamera, v -> c().zoomSmoothCamera = v))),
 			new Module(FREELOOK, Category.RENDER, "Hold the keybind (Left Alt) to look around without turning",
 					() -> c().freelook, v -> c().freelook = v),
+			new Module("Freecam", Category.RENDER, "Fly the camera around while you stay put (F6, single-player)",
+					() -> c().freecamOn, v -> c().freecamOn = v,
+					List.of(number("Speed", 2, 50, 1, "", () -> c().freecamSpeed, v -> c().freecamSpeed = v),
+							bool("Allow on Servers", () -> c().freecamOnServers, v -> c().freecamOnServers = v))),
 			new Module("Crosshair", Category.RENDER, "Custom crosshair (style 1 cross, 2 dot, 3 both, 4 square)",
 					() -> c().customCrosshair, v -> c().customCrosshair = v,
 					List.of(number("Style", 1, 4, 1, "", () -> c().crosshairStyle, v -> c().crosshairStyle = (int) v),

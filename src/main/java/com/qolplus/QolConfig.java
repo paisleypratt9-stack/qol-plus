@@ -102,6 +102,9 @@ public final class QolConfig {
 	// More client features
 	public boolean shulkerPreview = true;
 	public boolean freelook = true;
+	public boolean freecamOn = false;
+	public boolean freecamOnServers = false;
+	public double freecamSpeed = 10;
 	public boolean hudDay = false;
 	public boolean hudSessionStats = false;
 	public boolean customCrosshair = false;

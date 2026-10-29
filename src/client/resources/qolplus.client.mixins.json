@@ -6,6 +6,8 @@
 		"CameraZoomMixin",
 		"ContainerScreenAccessor",
 		"FramerateCapMixin",
+		"FreecamCameraMixin",
+		"FreecamInputMixin",
 		"FreelookCameraMixin",
 		"FreelookTurnMixin",
 		"FullbrightMixin",

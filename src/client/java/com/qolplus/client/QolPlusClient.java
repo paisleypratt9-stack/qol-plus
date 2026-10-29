@@ -50,6 +50,7 @@ public class QolPlusClient implements ClientModInitializer {
 		ClientPlayConnectionEvents.JOIN.register((handler, sender, mc) -> {
 			excavatorSent = null;
 			SessionStats.reset();
+			Freecam.onDisconnect(); // never start a world already in freecam
 		});
 		ClientPlayerBlockBreakEvents.AFTER.register((level, player, pos, state) -> SessionStats.onBlockMined());
 		AttackEntityCallback.EVENT.register((player, level, hand, entity, hit) -> {
@@ -57,7 +58,10 @@ public class QolPlusClient implements ClientModInitializer {
 			return InteractionResult.PASS;
 		});
 		ClientTooltipComponentCallback.EVENT.register(data -> data instanceof ShulkerPreview.Contents contents ? new ShulkerPreview.Grid(contents) : null);
-		ClientPlayConnectionEvents.DISCONNECT.register((handler, mc) -> DeathMarker.onDisconnect());
+		ClientPlayConnectionEvents.DISCONNECT.register((handler, mc) -> {
+			DeathMarker.onDisconnect();
+			Freecam.onDisconnect();
+		});
 
 		ClientTickEvents.END_CLIENT_TICK.register(mc -> {
 			while (MENU_KEY.consumeClick()) {
@@ -70,6 +74,7 @@ public class QolPlusClient implements ClientModInitializer {
 			LightOverlay.tick(mc);
 			Performance.tick(mc);
 			Freelook.tick(mc);
+			Freecam.tick(mc);
 			HitColor.tick(mc);
 			SessionStats.tick(mc);
 		});

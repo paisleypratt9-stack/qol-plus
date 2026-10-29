@@ -28,6 +28,7 @@ Quality-of-life features for Minecraft **26.3** on **Fabric**, with a clean menu
 
 **Render**
 - **Zoom** (hold Z): smooth, scroll to zoom further, optional cinematic camera.
+- **Freecam** (F6): fly the camera around while your player stays put. Single-player only unless you turn on "Allow on Servers".
 - **Freelook** (hold Left Alt): look around in third person without turning.
 - **Fullbright**, **Light Overlay** (F7, shows where mobs can spawn), **Death Marker**, custom **Crosshair** and **Hit Color**.
 
